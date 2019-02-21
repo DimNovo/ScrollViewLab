@@ -10,11 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // MARK: - Outlets
+    // MARK: - ... Outlets
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollImageView: UIImageView!
     
-    // MARK: - ViewController Methods
+    // MARK: - ... ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,25 +23,22 @@ class ViewController: UIViewController {
     }
 }
 
-// MARK: - Custom Methods
+// MARK: - ... Custom Methods
 extension ViewController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         
-        guard scrollView.minimumZoomScale >= 0
-            else
-        {
-            scrollView.minimumZoomScale = 1
-            scrollView.maximumZoomScale = 5
-            scrollView.clipsToBounds = true
-            
-            return scrollImageView
-        }
-        
         scrollView.maximumZoomScale = 5
         scrollView.clipsToBounds = true
         
+        guard scrollView.minimumZoomScale >= 0 else
+        {
+              scrollView.minimumZoomScale = 1
+              return scrollImageView
+            
+        }
+        
         return scrollImageView
-    }
+   }
 }
 
