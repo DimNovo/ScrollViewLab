@@ -32,10 +32,10 @@ extension ViewController: UIScrollViewDelegate {
         scrollView.clipsToBounds = true
         
         guard scrollView.minimumZoomScale >= 0 else
+            
         {
               scrollView.minimumZoomScale = 1
               return scrollImageView
-            
         }
         
         return scrollImageView
